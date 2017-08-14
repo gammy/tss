@@ -1,0 +1,25 @@
+This is just temporary.
+
+BSD users - edit Makefile, line 5. Remove the comment before "-DBSD".
+
+For now:
+
+su
+make
+chmod 4555 tss
+exit
+mkdir ~/.tss/
+cp tss_art/* ~/.tss/
+./tss
+
+Or even easier:
+
+su
+make
+chmod 4555 tss
+exit
+./tss -l -a tss_art/default
+
+Or perhaps a quick test:
+
+make && ./tss -a tss_art/default

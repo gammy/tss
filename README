@@ -1,0 +1,130 @@
+ __________     ____________________________    __________
+/  ______  \  .'                            `. /  ______  \
+| /      \ | /          .------.   .------.  / | /      \ |
+| |      | | `---.     /  _____/--/  _____/-'  | |      | |
+| \______/ |     /    |  (__     |  (__        | \______/ |
+\__________/    /    /\     `\   \     `\      \__________/
+____;__:____   /    /  `--.   |   `--.   |     ____;__:____
+|_____|  o |  /    /  _____)  |  _____)  |     |_____|  o |
+|_____| @==| /    / .'       / .'       /      |_____| @==|
+|__________| `---'  `-------'  `-------' :F_P: |__________|
+
+A Terminal ScreenSaver.
+
+http://www.pulia.nu/tss/
+Copyright (C) 2006 Kristian Gunstone
+
+Locking and shadow password retrieval code based on vlock 1.3
+Copyright (C) 1994 Michael K. Johnson and Marek
+
+tss is a terminal screensaver for GNU/Linux and FreeBSD.
+
+The first version, now over four years old, was meant to be a cheap copy of
+FreeBSD's daemon saver.
+
+This is a complete rewrite of the code, with many improvements:
+
+- VT Locking (Shadow and BSD DB)
+- ASCII Mirroring
+- ASCII Autopadding
+- ASCII direction selection
+- Multiple colors in ASCII object
+- Scrollbox showing uptime
+- Random ASCII file selection
+- Dynamic object speeds (ASCII, uname, scrollbox) 
+
+Notice
+======
+If you notice any bugs that are not noted in src/main.c, 
+please contact me.
+
+Mirroring
+=========
+TSS can flip a buffer and correct characters which have substitutes for the
+opposit direction.
+
+This usually turns out quite nicely with most ASCII art.
+
+tss supports automatic ascii padding since v0.7.8.4, so there is no longer
+any need to manually pad out ascii with spaces in order for mirroring to
+work properly.
+
+Colors
+======
+Any character can be colored by prepending ESC plus a color value before the
+character. The color will be set until an other color code is set. If several
+escape sequences follow each other, last seen is used.
+
+Colors are standard VT120, as initialised by curses:
+	1 - Black
+	2 - Red
+	3 - Green
+	4 - Yellow
+	5 - Blue
+	6 - Magenta
+	7 - Cyan
+	8 - White
+
+Example:
+
+	|5Hello,|
+	|4This is a demo8|
+
+This will make "Hello," blue, and "This is a demo" yellow.
+
+Since the colors will "float" until an other color is interpreted, we can
+manipulate the color of the uname and scrollbox from the ASCII.
+The 8 at the end will make these objects white.
+
+In order for color mirroring to work properly, make sure to repeat colors
+so that they will be readable from both directions.
+
+For example,
+
+	|AAAA82hello28AAAA|
+
+Will make the text "hello" red in both directions.
+
+The default color is 8 (white).
+
+Direction/nomirror
+==================
+If you want an ascii file to start in a specific direction, you can do this by
+prepending ESC plus the letter "l" or "r" after it in the beginning of the file.
+
+Example:
+
+	|lThis is a demo|
+
+If you do not want the ascii file to mirror at all, do the same as above but
+with a "n" after ESC.
+
+Locking
+=======
+For locking (the -l option) to work, this program requires suid. To do so, 
+  su
+  make
+  chmod 4555 tss
+  exit
+
+If tss is called with -l in a VT, it will not be possible to shut it down
+without entering the correct password.
+
+Be careful!
+
+Scrollbox
+=========
+The scrollbox will by default display the system load in 15 second intervals.
+It was originally planned for this to take output from a shellscript, but I
+see no real need for it. If someone still wants this feature, Contact me or
+implement it yourself and e-mail it to me.
+
+Random ASCII
+============
+Nothing magical. If you set -r, a random file will be used from /etc/tss/ or
+~/.tss/ if the prior does not exist or contain any files.
+
+Contact
+=======
+E-mail: kristappleian dot peachgunstone at pean dot org (remove fruits)
+Or try contacting gamkiller on IRC (EFnet and freenode)

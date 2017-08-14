@@ -1,0 +1,70 @@
+0.8.2
+- Read files after SUID drop (Fixes Debian bug #475747)
+- Drop SUID even if locking is not enabled (Fixed Debian "bug" #475736)
+  This one was REALLY stupid.
+- Exit with EXIT_SUCCESS or EXIT_FAILURE 
+- Minor error report cleanups (severe_error now takes va_list)
+- Check if ascii file is a regular file
+0.8.1
+- Added failed login attempt reporting via syslog
+0.8
+- Initial direction selection
+- Inline mirror disabling
+- Command line options for object speeds
+0.7.8.4
+- ASCII autopadding. No need to manually pad spaces!
+- Long options
+- Added an other char to mirror (b->d, d->b)
+- Widest line check fix (last line was never compared)
+- Minor offset adjustments for very small terminals
+- MAXPATH on all path related chars
+- Check if ascii path exceeds MAXPATH
+0.7.8.3
+- Added biggnu and supergnu text by Vijay Kumar
+- VT_SETMODE error checking
+- frsig fix (Fixes broken locking in FreeBSD)
+0.7.8.2
+- flush stdin before getinput (Fixes odd "ghost keys" on input)
+0.7.8.1
+- Very minor bugfixes. has_colors() warning in code, changes to help and INSTALL
+0.7.8 
+- Commented out script exec code. Too lazy to do it.
+- Mirroring enabled by default
+- Added A_BOLD (Daemon now looks like in FreeBSD)
+- Removed static allocation for ascii
+- Full color support
+- Fixed typo in mirroring code
+0.7.7
+- Ascii mirroring support
+- file_name broken if not random (from 0.7.5)
+0.7.6
+- Size check for passwd screen
+- Timeout countdown display
+- Password entry timeout code
+- New frame for password box
+0.7.5
+- Minor fixes
+- Added an other default directory, $HOME/.tss/
+- Failed login report on exit
+- Broken terminal configuration on exit (First seen in  0.7.4)
+- O_RDWR define fix (minor)
+0.7.4
+- Minor fixes
+- VT Locking
+0.7.3
+- Fixed fd_isset SIGABRT call when screen was too small
+- Additional experimental locking code
+- Load average as default scrolltext
+0.7.2:
+- Lock screen (no actual lock yet)
+- Dynamic text in scrollbox
+- shellscript exeuction
+0.7.1:
+- Argument handler
+- Scrollbox
+- Delay set
+0.7:
+- Random ascii read support
+- Speed differing on objs
+- Complete code rewrite.
+
