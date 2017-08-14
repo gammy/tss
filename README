@@ -1,3 +1,4 @@
+Please note that tss is discontinued and deemed unsafe.
  __________     ____________________________    __________
 /  ______  \  .'                            `. /  ______  \
 | /      \ | /          .------.   .------.  / | /      \ |
@@ -37,6 +38,7 @@ Notice
 ======
 If you notice any bugs that are not noted in src/main.c, 
 please contact me.
+
 
 Mirroring
 =========
